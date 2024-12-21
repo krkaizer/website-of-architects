@@ -1,0 +1,315 @@
+/* font-family: 'TT Hoves Pro Trial', sans-serif;
+font-family: 'TT Hoves Pro Trial Variable', sans-serif;
+font-family: 'TT Hoves Pro', sans-serif; */
+:root {
+    --light-color: #BDBDBD;
+    --dark-color: #333333;
+    --white-color: #FFFFFF;
+    --background-color: #2C2C2C;
+}
+
+html {
+    font-family: 'TT Hoves Pro Trial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+/* ШАПКА */
+
+.header {
+    min-height: 102px;
+    padding-top: 8px;
+}
+
+.menu {
+    height: 102px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 70px;
+}
+
+
+.navigation {
+}
+
+.navigation__list {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+    padding-right: 131px;
+    padding-bottom: 9px;
+}
+
+.navigation__item>a {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+.navigation__item>a:hover {
+    border-top: 1px solid var(--dark-color);
+    border-bottom: 1px solid var(--dark-color);
+}
+
+/* ГАЛЕРЕЯ */
+
+.gallery {
+    padding-top: 60px;
+}
+
+.gallery__h {
+    color: var(--light-color);
+    font-size: 64px;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 64px;
+}
+
+.h__dark {
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+.images {
+    padding-top: 61px;
+    display: grid;
+    grid-template-columns: repeat(5, 210px);
+    grid-template-rows: repeat(2, 260px);
+    gap: 30px;
+}
+
+/* описание при наведении */
+
+.image_wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.image_wrap:hover .image_description {
+    transform: translateY(-100%);
+}
+
+.image_description {
+    /* чтобы позиционировалось относительно wrap */
+    position: absolute;
+    height: 120px;
+    padding: 20px;
+    background-color: #FBFBFB;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark-color);
+    transition: transform .1s;
+}
+
+.image_text {
+    height: 100%;
+    overflow: hidden;
+}
+
+.images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* страницы */
+
+.gallery_nav {
+    padding-top: 60px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 26px;
+    color: var(--light-color);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 122px;
+}
+
+.pages {
+    display: flex;
+    justify-content: space-between;
+    width: 142px;
+    height: 31px;
+}
+
+.current_page {
+    color: var(--dark-color);
+}
+
+.btn-pages {
+    width: 53px;
+    height: 53px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 23px;
+}
+
+.btn-pages {
+    background-color: var(--white-color);
+    border: 1px solid #F2F2F2;
+}
+
+.btn-pages:hover {
+    background-color: #F9F9F9;
+}
+
+.prev {}
+
+.next {}
+
+/* ПОДВАЛ */
+
+.footer {
+    background-color: var(--background-color);
+    color: var(--white-color);
+    padding-top: 54px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.footer__flex {
+    display: flex;
+    max-width: 1208px;
+    min-height: 292px;
+    margin: 0 auto;
+}
+
+.footer__logo {
+    padding-top: 5px;
+    width: 145px;
+    height: 94px;
+    margin-right: 100px;
+}
+
+.footer__h {
+    padding-top: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: normal;
+}
+
+/* инфо */
+
+.footer__info {
+    margin-right: 155px;
+}
+
+
+.info__list {
+    list-style: none;
+    padding-top: 8px;
+    padding-left: 1px;
+}
+
+.info__list_item {
+    padding-top: 21px;
+}
+
+.info__list_item>a {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+/* контакты */
+
+.footer__contacts {
+    max-width: 280px;
+    margin-right: 145px;
+    line-height: 24px;
+}
+
+.contacts__a {
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.contacts__location {
+    display: flex;
+    padding-top: 20px;
+}
+
+.location__logo {
+    width: 11px;
+    height: 16px;
+    padding-left: 2px;
+    padding-top: 1px;
+}
+
+.location_address {
+    padding-left: 20px;
+}
+
+.contacts__phone {
+    padding-top: 56px;
+}
+
+.phone_number {
+    padding-left: 13px;
+}
+
+.contacts__email {
+    padding-top: 32px;
+}
+
+.email_address {
+    padding-left: 13px;
+}
+    
+/* соцсети */
+
+.footer__social {}
+
+.social__logo {
+    padding-top: 26px;
+    min-width: 185px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* выравнивание иконок */
+
+.fb {
+    margin-bottom: 4px;
+}
+
+.lin {
+    margin-bottom: 2px;
+}
+
+/* права */
+
+.rights {
+    height: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #c7c7c71a;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #c7c7c780;
+}
