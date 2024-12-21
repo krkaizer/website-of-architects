@@ -189,8 +189,19 @@ function onLoad() {
     ];
 
     const imagesPerPage = 10; //сколько картинок на странице максимум
-    
-    function renderPage(pageNumber) {
+
+    //подсчёт количества страниц
+    const pagesCount = Math.ceil(images.length / imagesPerPage);
+    document.getElementById('pagesCountID').innerHTML = numToPageNum(pagesCount);
+
+    function numToPageNum(num) { //если кол-во страниц однозначное, приводим к виду 05...
+        if (num >= 0 && num < 10) {
+            return `0${num}`
+        }
+        return num.toString()
+    };
+
+    function renderPage(pageNumber) { //отрисовка картинок при перелистывании
         if ((pageNumber === currPage) || (pageNumber*imagesPerPage >= images.length) || (pageNumber < 0)) { //
             return
         }
@@ -207,9 +218,11 @@ function onLoad() {
             `
         });
         document.getElementById('images').innerHTML = html;
-        addImageClickHandlers();
+        addImageClickHandlers(); //обработчик для открытия просмотра на новые изображения
 
         currPage = pageNumber;
+        document.getElementById('currentPageNumberID').innerHTML = numToPageNum(pageNumber + 1);
+
     }
 
     document.getElementById('prevPageBtn').addEventListener("click", () => renderPage(currPage - 1));
