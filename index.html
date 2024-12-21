@@ -34,7 +34,7 @@
     <section class="gallery">
         <div class="container">
             <h2 class="gallery__h">Галерея <br> <span class="h__dark">фотографий</span></h2>
-            <div class="images">
+            <div class="images" id="images">
                 <div class="image_wrap">
                     <img src="img/image1.png" alt="">
                     <div class="image_description">
@@ -103,16 +103,23 @@
                     <p>05</p>
                 </div>
                 <div class="buttons">
-                    <button class="btn-pages prev">
+                    <button class="btn-pages" id="prevPageBtn">
                         <img src="img/btn_left.png" alt="">
                     </button>
-                    <button class="btn-pages next">
+                    <button class="btn-pages" id="nextPageBtn">
                         <img src="img/btn_right.png" alt="">
                     </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="image_viewer" id="imageViewer">
+        <img src="img/image1.png" alt="">
+        <div class="close_viewer" id="closeViewer">
+            <img src="img/close.png" alt="" id="">
+        </div>
+    </div>
 
     <footer class="footer">
         <!-- <div class="container"> -->

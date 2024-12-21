@@ -92,7 +92,7 @@ html {
     padding-top: 61px;
     display: grid;
     grid-template-columns: repeat(5, 210px);
-    grid-template-rows: repeat(2, 260px);
+    /* grid-template-rows: repeat(2, 260px); */
     gap: 30px;
 }
 
@@ -101,6 +101,7 @@ html {
 .image_wrap {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .image_wrap:hover .image_description {
@@ -126,7 +127,7 @@ html {
 
 .images img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
 }
 
@@ -170,15 +171,12 @@ html {
 .btn-pages {
     background-color: var(--white-color);
     border: 1px solid #F2F2F2;
+    cursor: pointer;
 }
 
 .btn-pages:hover {
     background-color: #F9F9F9;
 }
-
-.prev {}
-
-.next {}
 
 /* ПОДВАЛ */
 
@@ -312,4 +310,28 @@ html {
     font-size: 12px;
     font-weight: 400;
     color: #c7c7c780;
+}
+
+/* просмотр */
+
+.image_viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.close_viewer {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+.close_viewer>img {
+    width: 30px;
+    height: 30px;
 }
