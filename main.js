@@ -202,12 +202,12 @@ function onLoad() {
     };
 
     function renderPage(pageNumber) { //отрисовка картинок при перелистывании
-        if ((pageNumber === currPage) || (pageNumber*imagesPerPage >= images.length) || (pageNumber < 0)) { //
+        if ((pageNumber === currPage) || (pageNumber*imagesPerPage >= images.length) || (pageNumber < 0)) { //если текущая страница ничего не делаем. если 
             return
         }
-        const currPageImages = images.slice(pageNumber*imagesPerPage, (pageNumber+1)*imagesPerPage);
+        const currPageImages = images.slice(pageNumber*imagesPerPage, (pageNumber+1)*imagesPerPage); //выбираем картинки из массива которые отрисовываем
         let html = ''; //переменная для разметки
-        currPageImages.forEach(image => {
+        currPageImages.forEach(image => { //и для каждой выбранной картинки создаём разметку
             html += `
                 <div class="image_wrap">
                     <img src="${image.src}" alt="">
@@ -217,43 +217,44 @@ function onLoad() {
                 </div>
             `
         });
-        document.getElementById('images').innerHTML = html;
-        addImageClickHandlers(); //обработчик для открытия просмотра на новые изображения
+        document.getElementById('images').innerHTML = html; //меняем содержимое документа на новую разметку
+        addImageClickHandlers(); //обработчик для открытия просмотра на новые изображения (после перерисовки)
 
         currPage = pageNumber;
-        document.getElementById('currentPageNumberID').innerHTML = numToPageNum(pageNumber + 1);
+        document.getElementById('currentPageNumberID').innerHTML = numToPageNum(pageNumber + 1); //при перелистывании меняем цифру
 
     }
 
-    document.getElementById('prevPageBtn').addEventListener("click", () => renderPage(currPage - 1));
+    document.getElementById('prevPageBtn').addEventListener("click", () => renderPage(currPage - 1)); //меняем текущую страницу при нажатии кнопок
     document.getElementById('nextPageBtn').addEventListener("click", () => renderPage(currPage + 1));
 
     //разворачивание изображения
-    const imageViewer = document.getElementById('imageViewer');
-    const closeViewer = document.getElementById('closeViewer');
-    const imagesElement = document.getElementById('images');
+    const imageViewer = document.getElementById('imageViewer'); //ищем просмотрщик
+    const closeViewer = document.getElementById('closeViewer'); //ищем крестик
+    // closeViewer.addEventListener("click", closeImageViewer); //на крестик сразу вешаем закрытие
+    const imagesElement = document.getElementById('images'); //и элемент с картинками
 
-    function openImageViewer(imgSrc) {
+    function openImageViewer(imgSrc) { //получает на вход урл
         const img = imageViewer.querySelector('img');
         img.src = imgSrc;
-        imageViewer.style.display = "flex";
+        imageViewer.style.display = "flex"; //отображаем просмотрщик
     };
     function closeImageViewer() {
-        imageViewer.style.display = "none";
+        imageViewer.style.display = "none"; //прячем просмотрщик
     };
 
     function addImageClickHandlers() {
         //children возвращает html коллекцию картинок. элементы массива - image_wrap
-        Array.from(imagesElement.children).forEach(imageWrapElement => {
-            const src = imageWrapElement.querySelector('img').src;
+        Array.from(imagesElement.children).forEach(imageWrapElement => { //из элемента с картинками делаем массив и на каждый вешаем обработчик
+            const src = imageWrapElement.querySelector('img').src; //ищем урлы всех картинок
             imageWrapElement.addEventListener("click", () => {
-                openImageViewer(src);
+                openImageViewer(src); //на каждую картинку вешаем урл с соответствующим адресом
             })
         })
     };
 
-    closeViewer.addEventListener("click", closeImageViewer);
-    addImageClickHandlers();
+    closeViewer.addEventListener("click", closeImageViewer); //на крестик сразу вешаем закрытие
+    addImageClickHandlers(); //на все загрузившиеся картинки вешаем обработчики по загрузке страницы
 }
 
-onLoad();
+onLoad(); //чтобы как только скрипт загрузится запустить его
